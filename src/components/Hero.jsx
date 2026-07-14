@@ -10,9 +10,15 @@ const Hero = () => {
           <h1>
             Tal <span className="accent">Chekol</span>
           </h1>
+          <h1>
+            I Design, code, and Deploy.
+            <span className="accent">Seamlessly.</span>
+          </h1>
+
           <p className="lede">
-            I build responsive, scalable and modern web applications with React,
-            Node.js, Express and MongoDB.
+            Transforming complex concepts into high-performance web apps,
+            bridging the gap between pixel-perfect React interfaces and robust
+            backends.
           </p>
           <ul className="hero-meta">
             <li>

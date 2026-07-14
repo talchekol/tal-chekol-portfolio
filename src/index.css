@@ -577,6 +577,121 @@ footer .footer-lede {
   color: var(--text-on-dark-muted);
 }
 
+/* ========================================= */
+/* 🌀 SHAINGAN PRELOADER DESIGN & ANIMATION 🌀 */
+/* ========================================= */
+
+/* מסך הרקע השחור המלא */
+.sharingan-preloader {
+  position: fixed;
+  inset: 0;
+  background-color: #05070c; /* צבע כהה עמוק */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* מעל כל אלמנט אחר באתר */
+  overflow: hidden;
+}
+
+/* מיכל העין לצורך מיקום ההילה (Glow) */
+.sharingan-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* תמונת ה-Sharingan והפעלת אנימציית הסחרור */
+.sharingan-eye {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  /* האנימציה רצה פעם אחת למשך 2 שניות ושומרת על המצב האחרון (forwards) */
+  animation: sharinganChakraSpin 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  z-index: 2;
+}
+
+/* הילה אדומה ברקע שמתרחבת יחד עם גדילת העין */
+.sharingan-glow {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(
+    circle,
+    rgba(185, 28, 28, 0.55) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  z-index: 1;
+  animation: pulseGlow 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* 🌀 אנימציית הסחרור והגדילה המטורפת של השארינגאן 🌀 */
+@keyframes sharinganChakraSpin {
+  0% {
+    transform: rotate(0deg) scale(0.2); /* מתחיל קטן מאוד ונסתר */
+    filter: blur(10px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: rotate(360deg) scale(2); /* ⚡ גדילה דרמטית ועוצמתית פי 2 תוך כדי סיבוב מלא! */
+  }
+  65% {
+    transform: rotate(720deg) scale(1.7); /* סיבוב מהיר נוסף תוך כדי התייצבות קלה בגודל */
+    opacity: 1;
+    filter: blur(0px);
+  }
+  80% {
+    transform: rotate(1080deg) scale(1.7); /* סחרור שיא */
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    transform: rotate(1800deg) scale(0.3); /* כיווץ סופר-מהיר, טשטוש והיעלמות */
+    filter: blur(15px);
+    opacity: 0;
+  }
+}
+
+/* אנימציית פעימת האור האדום שמתואמת עם גדילת העין */
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(2.3);
+    opacity: 1;
+  } /* ההילה מתרחבת אפילו מעבר לעין השארינגאן */
+  75% {
+    transform: scale(1.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* ✨ אפקט כניסה חלק ועדין לפורטפוליו עצמו ✨ */
+.portfolio-fade-in {
+  animation: portfolioReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes portfolioReveal {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
 @media (max-width: 860px) {
   /* תפריט הניווט הנייד - רקע כהה אטום ויישור מושלם לצד ימין של המסך */
   nav {
